@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "management-24d58": {
+      "hosting": {
+        "management": [
+          "management-24d58"
+        ]
+      }
+    }
+  }
+}
