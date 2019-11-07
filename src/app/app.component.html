@@ -1,12 +1,43 @@
-<!-- <h1>Tenant List</h1>
-<ul>
-  <li *ngFor="let tenant of tenant$ | async">{{ tenant.name }}</li>
-</ul> -->
-
-  <mat-form-field>
-    <input placeholder="tenant name" matInput>
-  </mat-form-field>
-
-  <mat-form-field>
-    <input placeholder="social number" matInput>
-  </mat-form-field>
+<section class="container s12">
+  <h4>New Tenant</h4>
+  <form [formGroup]="tenantForm" class="col s12" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="social_id" type="text" focus class="validate" formControlName="socialId">
+        <label for="social_id">Social ID</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="first_name" type="text" class="validate" formControlName="tenantFirstName">
+        <label for="first_name">First Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="last_name" type="text" class="validate" formControlName="tenantLastName">
+        <label for="last_name">Last Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6">
+        <label for="gender-selection">Gender</label>
+      </div>
+      <div id="gender_selection" class="col s6">
+          <label class="col s6">
+            <input name="gender" value="male" type="radio" formControlName="gender" />
+            <span for="male">Male</span>
+          </label>
+          <label class="col s6">
+            <input name="gender" value="female" type="radio" formControlName="gender"/>
+            <span for="female">Female</span>
+          </label>
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light" 
+      [ngClass]="{'disabled': tenantForm.invalid}"
+      type="submit" name="action">Create
+      <i class="material-icons right">send</i>
+    </button>
+  </form>
+</section>
